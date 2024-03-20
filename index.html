@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -800,4 +800,166 @@ document.getElementById("downloadCV").onclick = function() {
     
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominance Rule in Game Theory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: #333;
+        }
+
+        #game-container {
+            margin-top: 30px;
+        }
+
+        #game-table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        #game-table td {
+            border: 1px solid #333;
+            padding: 15px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .input-cell {
+            width: 40px;
+            text-align: center;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .explanation {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dominance Rule in Game Theory</h1>
+    <div id="game-container">
+        <table id="game-table">
+            <tr>
+                <td rowspan="2">Player 1<br>(Row Player)</td>
+                <td colspan="4">Strategies</td>
+            </tr>
+            <tr>
+                <td>a1</td>
+                <td>a2</td>
+                <td>a3</td>
+                <td>a4</td>
+            </tr>
+            <tr>
+                <td rowspan="4">Player 2<br>(Column Player)</td>
+                <td><input type="number" class="input-cell" id="a1a1"></td>
+                <td><input type="number" class="input-cell" id="a1a2"></td>
+                <td><input type="number" class="input-cell" id="a1a3"></td>
+                <td><input type="number" class="input-cell" id="a1a4"></td>
+            </tr>
+            <tr>
+                <td><input type="number" class="input-cell" id="a2a1"></td>
+                <td><input type="number" class="input-cell" id="a2a2"></td>
+                <td><input type="number" class="input-cell" id="a2a3"></td>
+                <td><input type="number" class="input-cell" id="a2a4"></td>
+            </tr>
+            <tr>
+                <td><input type="number" class="input-cell" id="a3a1"></td>
+                <td><input type="number" class="input-cell" id="a3a2"></td>
+                <td><input type="number" class="input-cell" id="a3a3"></td>
+                <td><input type="number" class="input-cell" id="a3a4"></td>
+            </tr>
+            <tr>
+                <td><input type="number" class="input-cell" id="a4a1"></td>
+                <td><input type="number" class="input-cell" id="a4a2"></td>
+                <td><input type="number" class="input-cell" id="a4a3"></td>
+                <td><input type="number" class="input-cell" id="a4a4"></td>
+            </tr>
+        </table>
+        <button onclick="findDominantStrategy()">Find Dominant Strategy</button>
+        <p id="result"></p>
+        <div class="explanation" id="explanation"></div>
+        <button onclick="calculateValue()">Calculate Value of the Game</button>
+        <p id="valueResult"></p>
+    </div>
+
+    <script>
+        function findDominantStrategy() {
+            const payoffs = [];
+            for (let i = 1; i <= 4; i++) {
+                const row = [];
+                for (let j = 1; j <= 4; j++) {
+                    const payoff = parseFloat(document.getElementById(`a${i}a${j}`).value);
+                    row.push(payoff);
+                }
+                payoffs.push(row);
+            }
+
+            const maxPayoffsRow = payoffs.map(row => Math.max(...row));
+            const maxPayoffsCol = payoffs.reduce((acc, row, index) => {
+                const maxInColumn = Math.max(...payoffs.map(r => r[index]));
+                acc.push(maxInColumn);
+                return acc;
+            }, []);
+
+            const maxPayoffPlayer1 = Math.max(...maxPayoffsRow);
+            const maxPayoffPlayer2 = Math.max(...maxPayoffsCol);
+            const maxPayoffIndexPlayer1 = maxPayoffsRow.indexOf(maxPayoffPlayer1) + 1;
+            const maxPayoffIndexPlayer2 = maxPayoffsCol.indexOf(maxPayoffPlayer2) + 1;
+
+            let result = "";
+            if (maxPayoffPlayer1 === maxPayoffPlayer2) {
+                result = "No dominant strategy exists for either player.";
+            } else if (maxPayoffPlayer1 > maxPayoffPlayer2) {
+                result = `Player 1 (Row Player) has a dominant strategy: Strategy a${maxPayoffIndexPlayer1}`;
+            } else {
+                result = `Player 2 (Column Player) has a dominant strategy: Strategy a${maxPayoffIndexPlayer2}`;
+            }
+
+            document.getElementById('result').innerText = result;
+            document.getElementById('explanation').innerText = "";
+        }
+
+        function calculateValue() {
+            const payoffs = [];
+            for (let i = 1; i <= 4; i++) {
+                const row = [];
+                for (let j = 1; j <= 4; j++) {
+                    const payoff = parseFloat(document.getElementById(`a${i}a${j}`).value);
+                    row.push(payoff);
+                }
+                payoffs.push(row);
+            }
+
+            const sumPayoffs = payoffs.reduce((acc, row) => acc + row.reduce((a, b) => a + b, 0), 0);
+            const totalStrategies = 16;
+            const valueOfTheGame = sumPayoffs / totalStrategies;
+
+            document.getElementById('valueResult').innerText = `Value of the game: ${valueOfTheGame.toFixed(2)}`;
+        }
+    </script>
+</body>
 </html>
+
+
