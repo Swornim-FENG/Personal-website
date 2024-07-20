@@ -1,3 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netech Performance Appraisal Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            color: #444;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #34495e;
+        }
+
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section {
+            margin-bottom: 30px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: #2980b9;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #1f5a7d;
+        }
+
+        .goal,
+        .progress,
+        .evaluation {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+
+        .goal h3,
+        .progress h3,
+        .evaluation h3 {
+            color: #c0392b;
+        }
+
+        .goal,
+        .progress,
+        .evaluation {
+            background-color: #ffffff;
+            border-left: 5px solid #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Netech Performance Appraisal Form </h1>
+
+        <form id="appraisalForm">
+            <section>
+                <h2>Employee Information</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="position">Position:</label>
+                <input type="text" id="position" name="position" required>
+
+                <label for="department">Department (IT/Marketing):</label>
+                <input type="text" id="department" name="department" required>
+
+                <label for="manager">Manager:</label>
+                <input type="text" id="manager" name="manager" required>
+
+                <label for="reviewPeriod">Review Period:</label>
+                <input type="text" id="reviewPeriod" name="reviewPeriod" required>
+            </section>
+
+            <section>
+                <h2>Goal Setting</h2>
+                <div class="goal">
+                    <h3>Goal 1</h3>
+                    <label for="goal1Objective">Objective:</label>
+                    <input type="text" id="goal1Objective" name="goal1Objective" required>
+
+                    <label for="goal1ExpectedOutcome">Expected Outcome:</label>
+                    <input type="text" id="goal1ExpectedOutcome" name="goal1ExpectedOutcome" required>
+
+                    <label for="goal1Measurement">Measurement Criteria:</label>
+                    <input type="text" id="goal1Measurement" name="goal1Measurement" required>
+
+                    <label for="goal1Deadline">Deadline:</label>
+                    <input type="date" id="goal1Deadline" name="goal1Deadline" required>
+                </div>
+
+                <div class="goal">
+                    <h3>Goal 2</h3>
+                    <label for="goal2Objective">Objective:</label>
+                    <input type="text" id="goal2Objective" name="goal2Objective">
+
+                    <label for="goal2ExpectedOutcome">Expected Outcome:</label>
+                    <input type="text" id="goal2ExpectedOutcome" name="goal2ExpectedOutcome">
+
+                    <label for="goal2Measurement">Measurement Criteria:</label>
+                    <input type="text" id="goal2Measurement" name="goal2Measurement">
+
+                    <label for="goal2Deadline">Deadline:</label>
+                    <input type="date" id="goal2Deadline" name="goal2Deadline">
+                </div>
+
+                <div class="goal">
+                    <h3>Goal 3</h3>
+                    <label for="goal3Objective">Objective:</label>
+                    <input type="text" id="goal3Objective" name="goal3Objective">
+
+                    <label for="goal3ExpectedOutcome">Expected Outcome:</label>
+                    <input type="text" id="goal3ExpectedOutcome" name="goal3ExpectedOutcome">
+
+                    <label for="goal3Measurement">Measurement Criteria:</label>
+                    <input type="text" id="goal3Measurement" name="goal3Measurement">
+
+                    <label for="goal3Deadline">Deadline:</label>
+                    <input type="date" id="goal3Deadline" name="goal3Deadline">
+                </div>
+            </section>
+
+            <section>
+                <h2>Progress Review</h2>
+                <div class="progress">
+                    <h3>Goal 1</h3>
+                    <label for="goal1Progress">Progress:</label>
+                    <textarea id="goal1Progress" name="goal1Progress" required></textarea>
+
+                    <label for="goal1Challenges">Challenges:</label>
+                    <textarea id="goal1Challenges" name="goal1Challenges" required></textarea>
+
+                    <label for="goal1Adjustments">Adjustments Made:</label>
+                    <textarea id="goal1Adjustments" name="goal1Adjustments" required></textarea>
+
+                    <label for="goal1ManagerComments">Manager's Comments:</label>
+                    <textarea id="goal1ManagerComments" name="goal1ManagerComments"></textarea>
+                </div>
+
+                <div class="progress">
+                    <h3>Goal 2</h3>
+                    <label for="goal2Progress">Progress:</label>
+                    <textarea id="goal2Progress" name="goal2Progress"></textarea>
+
+                    <label for="goal2Challenges">Challenges:</label>
+                    <textarea id="goal2Challenges" name="goal2Challenges"></textarea>
+
+                    <label for="goal2Adjustments">Adjustments Made:</label>
+                    <textarea id="goal2Adjustments" name="goal2Adjustments"></textarea>
+
+                    <label for="goal2ManagerComments">Manager's Comments:</label>
+                    <textarea id="goal2ManagerComments" name="goal2ManagerComments"></textarea>
+                </div>
+
+                <div class="progress">
+                    <h3>Goal 3</h3>
+                    <label for="goal3Progress">Progress:</label>
+                    <textarea id="goal3Progress" name="goal3Progress"></textarea>
+
+                    <label for="goal3Challenges">Challenges:</label>
+                    <textarea id="goal3Challenges" name="goal3Challenges"></textarea>
+
+                    <label for="goal3Adjustments">Adjustments Made:</label>
+                    <textarea id="goal3Adjustments" name="goal3Adjustments"></textarea>
+
+                    <label for="goal3ManagerComments">Manager's Comments:</label>
+                    <textarea id="goal3ManagerComments" name="goal3ManagerComments"></textarea>
+                </div>
+            </section>
+
+            <section>
+                <h2>Final Evaluation</h2>
+                <div class="evaluation">
+                    <h3>Goal 1</h3>
+                    <label for="goal1FinalOutcome">Final Outcome:</label>
+                    <textarea id="goal1FinalOutcome" name="goal1FinalOutcome" required></textarea>
+
+                    <label for="goal1AchievementRating">Achievement Rating (1-5):</label>
+                    <input type="number" id="goal1AchievementRating" name="goal1AchievementRating" min="1" max="5" required>
+
+                    <label for="goal1QualityRating">Quality of Work Rating (1-5):</label>
+                    <input type="number" id="goal1QualityRating" name="goal1QualityRating" min="1" max="5" required>
+
+                    <label for="goal1FinalComments">Comments:</label>
+                    <textarea id="goal1FinalComments" name="goal1FinalComments"></textarea>
+                </div>
+
+                <div class="evaluation">
+                    <h3>Goal 2</h3>
+                    <label for="goal2FinalOutcome">Final Outcome:</label>
+                    <textarea id="goal2FinalOutcome" name="goal2FinalOutcome"></textarea>
+
+                    <label for="goal2AchievementRating">Achievement Rating (1-5):</label>
+                    <input type="number" id="goal2AchievementRating" name="goal2AchievementRating" min="1" max="5">
+
+                    <label for="goal2QualityRating">Quality of Work Rating (1-5):</label>
+                    <input type="number" id="goal2QualityRating" name="goal2QualityRating" min="1" max="5">
+
+                    <label for="goal2FinalComments">Comments:</label>
+                    <textarea id="goal2FinalComments" name="goal2FinalComments"></textarea>
+                </div>
+
+                <div class="evaluation">
+                    <h3>Goal 3</h3>
+                    <label for="goal3FinalOutcome">Final Outcome:</label>
+                    <textarea id="goal3FinalOutcome" name="goal3FinalOutcome"></textarea>
+
+                    <label for="goal3AchievementRating">Achievement Rating (1-5):</label>
+                    <input type="number" id="goal3AchievementRating" name="goal3AchievementRating" min="1" max="5">
+
+                    <label for="goal3QualityRating">Quality of Work Rating (1-5):</label>
+                    <input type="number" id="goal3QualityRating" name="goal3QualityRating" min="1" max="5">
+
+                    <label for="goal3FinalComments">Comments:</label>
+                    <textarea id="goal3FinalComments" name="goal3FinalComments"></textarea>
+                </div>
+            </section>
+
+            <section>
+                <h2>Overall Performance Summary</h2>
+                <label for="overallAchievementRating">Overall Achievement Rating (1-5):</label>
+                <input type="number" id="overallAchievementRating" name="overallAchievementRating" min="1" max="5" required>
+
+                <label for="overallQualityRating">Overall Quality of Work Rating (1-5):</label>
+                <input type="number" id="overallQualityRating" name="overallQualityRating" min="1" max="5" required>
+
+                <label for="strengths">Strengths:</label>
+                <textarea id="strengths" name="strengths" required></textarea>
+
+                <label for="improvement">Areas for Improvement:</label>
+                <textarea id="improvement" name="improvement" required></textarea>
+
+                <label for="additionalComments">Additional Comments:</label>
+                <textarea id="additionalComments" name="additionalComments"></textarea>
+            </section>
+
+            <section>
+                <h2>Development Plan</h2>
+                <label for="newObjectives">New Objectives:</label>
+                <textarea id="newObjectives" name="newObjectives" required></textarea>
+
+                <label for="trainingNeeds">Training Needs:</label>
+                <textarea id="trainingNeeds" name="trainingNeeds" required></textarea>
+
+                <label for="supportRequired">Support Required:</label>
+                <textarea id="supportRequired" name="supportRequired" required></textarea>
+
+                <label for="developmentComments">Comments:</label>
+                <textarea id="developmentComments" name="developmentComments"></textarea>
+            </section>
+
+            <section>
+                <h2>Signatures</h2>
+                <label for="employeeSignature">Employee:</label>
+                <input type="text" id="employeeSignature" name="employeeSignature" required>
+
+                <label for="managerSignature">Manager:</label>
+                <input type="text" id="managerSignature" name="managerSignature" required>
+
+                <label for="signatureDate">Date:</label>
+                <input type="date" id="signatureDate" name="signatureDate" required>
+            </section>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('appraisalForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+
+</html>
 <!-- <!DOCTYPE html>
 <html lang="en">
 
@@ -802,164 +1153,7 @@ document.getElementById("downloadCV").onclick = function() {
 
 </html> -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dominance Rule in Game Theory</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
 
-        h1 {
-            margin-top: 50px;
-            color: #333;
-        }
 
-        #game-container {
-            margin-top: 30px;
-        }
-
-        #game-table {
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
-
-        #game-table td {
-            border: 1px solid #333;
-            padding: 15px;
-            width: 50px;
-            height: 50px;
-        }
-
-        .input-cell {
-            width: 40px;
-            text-align: center;
-        }
-
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        .explanation {
-            margin-top: 20px;
-            text-align: left;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
-</head>
-<body>
-    <h1>Dominance Rule in Game Theory</h1>
-    <div id="game-container">
-        <table id="game-table">
-            <tr>
-                <td rowspan="2">Player 1<br>(Row Player)</td>
-                <td colspan="4">Strategies</td>
-            </tr>
-            <tr>
-                <td>a1</td>
-                <td>a2</td>
-                <td>a3</td>
-                <td>a4</td>
-            </tr>
-            <tr>
-                <td rowspan="4">Player 2<br>(Column Player)</td>
-                <td><input type="number" class="input-cell" id="a1a1"></td>
-                <td><input type="number" class="input-cell" id="a1a2"></td>
-                <td><input type="number" class="input-cell" id="a1a3"></td>
-                <td><input type="number" class="input-cell" id="a1a4"></td>
-            </tr>
-            <tr>
-                <td><input type="number" class="input-cell" id="a2a1"></td>
-                <td><input type="number" class="input-cell" id="a2a2"></td>
-                <td><input type="number" class="input-cell" id="a2a3"></td>
-                <td><input type="number" class="input-cell" id="a2a4"></td>
-            </tr>
-            <tr>
-                <td><input type="number" class="input-cell" id="a3a1"></td>
-                <td><input type="number" class="input-cell" id="a3a2"></td>
-                <td><input type="number" class="input-cell" id="a3a3"></td>
-                <td><input type="number" class="input-cell" id="a3a4"></td>
-            </tr>
-            <tr>
-                <td><input type="number" class="input-cell" id="a4a1"></td>
-                <td><input type="number" class="input-cell" id="a4a2"></td>
-                <td><input type="number" class="input-cell" id="a4a3"></td>
-                <td><input type="number" class="input-cell" id="a4a4"></td>
-            </tr>
-        </table>
-        <button onclick="findDominantStrategy()">Find Dominant Strategy</button>
-        <p id="result"></p>
-        <div class="explanation" id="explanation"></div>
-        <button onclick="calculateValue()">Calculate Value of the Game</button>
-        <p id="valueResult"></p>
-    </div>
-
-    <script>
-        function findDominantStrategy() {
-            const payoffs = [];
-            for (let i = 1; i <= 4; i++) {
-                const row = [];
-                for (let j = 1; j <= 4; j++) {
-                    const payoff = parseFloat(document.getElementById(`a${i}a${j}`).value);
-                    row.push(payoff);
-                }
-                payoffs.push(row);
-            }
-
-            const maxPayoffsRow = payoffs.map(row => Math.max(...row));
-            const maxPayoffsCol = payoffs.reduce((acc, row, index) => {
-                const maxInColumn = Math.max(...payoffs.map(r => r[index]));
-                acc.push(maxInColumn);
-                return acc;
-            }, []);
-
-            const maxPayoffPlayer1 = Math.max(...maxPayoffsRow);
-            const maxPayoffPlayer2 = Math.max(...maxPayoffsCol);
-            const maxPayoffIndexPlayer1 = maxPayoffsRow.indexOf(maxPayoffPlayer1) + 1;
-            const maxPayoffIndexPlayer2 = maxPayoffsCol.indexOf(maxPayoffPlayer2) + 1;
-
-            let result = "";
-            if (maxPayoffPlayer1 === maxPayoffPlayer2) {
-                result = "No dominant strategy exists for either player.";
-            } else if (maxPayoffPlayer1 > maxPayoffPlayer2) {
-                result = `Player 1 (Row Player) has a dominant strategy: Strategy a${maxPayoffIndexPlayer1}`;
-            } else {
-                result = `Player 2 (Column Player) has a dominant strategy: Strategy a${maxPayoffIndexPlayer2}`;
-            }
-
-            document.getElementById('result').innerText = result;
-            document.getElementById('explanation').innerText = "";
-        }
-
-        function calculateValue() {
-            const payoffs = [];
-            for (let i = 1; i <= 4; i++) {
-                const row = [];
-                for (let j = 1; j <= 4; j++) {
-                    const payoff = parseFloat(document.getElementById(`a${i}a${j}`).value);
-                    row.push(payoff);
-                }
-                payoffs.push(row);
-            }
-
-            const sumPayoffs = payoffs.reduce((acc, row) => acc + row.reduce((a, b) => a + b, 0), 0);
-            const totalStrategies = 16;
-            const valueOfTheGame = sumPayoffs / totalStrategies;
-
-            document.getElementById('valueResult').innerText = `Value of the game: ${valueOfTheGame.toFixed(2)}`;
-        }
-    </script>
-</body>
-</html>
 
 
